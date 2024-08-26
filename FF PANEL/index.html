@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garena official - Confidential Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="panel">
+        <div class="header">
+            <h1>Garena Official Panel</h1>
+        </div>
+        <div class="stats">
+            <div class="stat-item">
+                <h2>99% Headshot Rate</h2>
+                <p>Guaranteed precision</p>
+            </div>
+            <div class="stat-item">
+                <h2>No Recoil</h2>
+                <p>Perfect stability</p>
+            </div>
+            <div class="stat-item">
+                <h2>No Lag</h2>
+                <p>Seamless gameplay</p>
+            </div>
+        </div>
+        <div class="privacy">
+            <input type="checkbox" id="privacy-checkbox">
+            <label for="privacy-checkbox">I am not responsible if my ID band</label>
+        </div>
+        <button id="enter-game-button" disabled>Enter Game</button>
+        <div class="footer">
+            <p>FreeFire | Version 0B45</p>
+        </div>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('privacy-checkbox');
+        const button = document.getElementById('enter-game-button');
+
+        checkbox.addEventListener('change', function() {
+            button.disabled = !checkbox.checked;
+        });
+
+        button.addEventListener('click', function() {
+            if (checkbox.checked) {
+                // Attempt to open the game via a URL scheme
+                window.location.href = "garena://"; // Garena Free Fire URL scheme
+
+                // Fallback to Google Play Store if the game is not installed
+                setTimeout(function() {
+                    window.location.href = "https://play.google.com/store/apps/details?id=com.dts.freefireth";
+                }, 2000); // Delay to allow for opening the app
+            }
+        });
+    </script>
+</body>
+</html>
